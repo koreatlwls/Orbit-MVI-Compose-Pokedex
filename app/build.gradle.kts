@@ -1,18 +1,18 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(GradlePluginId.ANDROID_APPLICATION)
+    kotlin(GradlePluginId.ANDROID)
 }
 
 android {
-    namespace = "koreatlwls.pokedex"
-    compileSdk = 33
+    namespace = AppConfig.APP_ID
+    setCompileSdkVersion(AppConfig.COMPILE_SDK_VERSION)
 
     defaultConfig {
-        applicationId = "koreatlwls.pokedex"
-        minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = AppConfig.APP_ID
+        minSdk = AppConfig.MIN_SDK_VERSION
+        targetSdk = AppConfig.COMPILE_SDK_VERSION
+        versionCode = AppConfig.APP_VERSION_CODE
+        versionName = AppConfig.APP_VERSION_NAME
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -40,7 +40,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = Versions.KOTLIN_COMPILER_EXTENSION
     }
     packaging {
         resources {
@@ -51,19 +51,33 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
-    implementation("androidx.activity:activity-compose:1.7.0")
-    implementation(platform("androidx.compose:compose-bom:2023.03.00"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
+    AndroidX.run {
+        implementation(ANDROIDX_CORE_KTX)
+    }
+
+    LifecycleLibs.run {
+        implementation(RUNTIME_KTX)
+    }
+
+    Compose.run {
+        api(UI)
+        api(MATERIAL)
+        api(MATERIAL3)
+        api(ACTIVITY)
+        api(FOUNDATION)
+        api(TOOLING_PREVIEW)
+        api(UI_UTIL)
+
+        debugApi(TEST_MANIFEST)
+        debugApi(TOOLING_PREVIEW)
+    }
+
+    testApi(TestingLib.JUNIT)
+
+    AndroidTestingLib.run {
+        androidTestApi(ANDROIDX_TEST_EXT_JUNIT)
+        androidTestApi(ESPRESSO_CORE)
+        androidTestApi(COMPOSE_UI_TEST_JUNIT4)
+    }
+
 }
