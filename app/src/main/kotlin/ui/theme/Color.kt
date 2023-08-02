@@ -1,4 +1,4 @@
-package koreatlwls.pokedex.ui.theme
+package pokedex.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
