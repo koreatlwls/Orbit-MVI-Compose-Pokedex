@@ -4,6 +4,7 @@ object AppConfig {
     const val COMPILE_SDK_VERSION = 33
 
     const val APP_ID = "koreatlwls.pokedex"
+    const val APP_CORE_ID = "koreatlwls.pokedex.core"
     const val APP_VERSION_CODE = 1
     const val APP_VERSION_NAME = "1.0"
 
