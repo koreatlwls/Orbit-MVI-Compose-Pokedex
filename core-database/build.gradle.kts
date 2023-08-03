@@ -1,6 +1,8 @@
 plugins {
     id(GradlePluginId.ANDROID_LIBRARY)
     kotlin(GradlePluginId.ANDROID)
+    kotlin(GradlePluginId.KAPT)
+    id(GradlePluginId.HILT)
 }
 
 android {
@@ -30,4 +32,19 @@ dependencies {
         androidTestApi(ESPRESSO_CORE)
     }
 
+    Hilt.run {
+        kapt(COMPILER)
+        implementation(ANDROID_CORE)
+    }
+
+    Room.run {
+        implementation(RUNTIME)
+        implementation(KTX)
+        kapt(COMPILER)
+    }
+
+}
+
+kapt {
+    correctErrorTypes = true
 }

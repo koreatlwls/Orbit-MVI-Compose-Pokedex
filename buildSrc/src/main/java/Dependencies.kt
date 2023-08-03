@@ -14,6 +14,7 @@ object Versions {
     const val RETROFIT = "2.9.0"
     const val MOSHI = "1.14.0"
     const val OKHTTP = "4.10.0"
+    const val ROOM = "2.5.0"
 }
 
 object Modules {
@@ -81,4 +82,10 @@ object Moshi {
 object Okhttp3 {
     const val CORE = "com.squareup.okhttp3:okhttp:${Versions.OKHTTP}"
     const val LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:${Versions.OKHTTP}"
+}
+
+object Room {
+    const val RUNTIME = "androidx.room:room-runtime:${Versions.ROOM}"
+    const val KTX = "androidx.room:room-ktx:${Versions.ROOM}"
+    const val COMPILER = "androidx.room:room-compiler:${Versions.ROOM}"
 }
