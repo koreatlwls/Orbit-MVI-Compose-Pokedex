@@ -1,6 +1,8 @@
 plugins {
     id(GradlePluginId.ANDROID_APPLICATION)
     kotlin(GradlePluginId.ANDROID)
+    kotlin(GradlePluginId.KAPT)
+    id(GradlePluginId.HILT)
 }
 
 android {
@@ -30,11 +32,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -80,4 +82,17 @@ dependencies {
         androidTestApi(COMPOSE_UI_TEST_JUNIT4)
     }
 
+    Hilt.run {
+        kapt(COMPILER)
+        implementation(ANDROID_CORE)
+    }
+
+    Modules.run{
+        implementation(project(DATA))
+    }
+
+}
+
+kapt {
+    correctErrorTypes = true
 }
