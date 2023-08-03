@@ -4,4 +4,7 @@ object GradlePluginId {
     const val ANDROID_LIBRARY = "com.android.library"
     const val ANDROID_BUILD_GRADLE = "com.android.tools.build:gradle"
     const val KOTLIN = "org.jetbrains.kotlin:kotlin-gradle-plugin"
+    const val KAPT = "kapt"
+    const val HILT = "dagger.hilt.android.plugin"
+    const val HILT_APG = "com.google.dagger:hilt-android-gradle-plugin"
 }

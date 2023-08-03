@@ -10,15 +10,22 @@ object Versions {
     const val ESPRESSO_CORE = "3.4.0"
     const val ANDROID_BUILD_GRADLE = "8.0.0"
     const val KOTLIN = "1.8.21"
+    const val HILT = "2.44.2"
+    const val RETROFIT = "2.9.0"
+    const val MOSHI = "1.14.0"
+    const val OKHTTP = "4.10.0"
 }
 
 object Modules {
     const val APP = ":app"
+    const val DATA = ":core-data"
+    const val NETWORK = ":core-network"
 }
 
 object BuildPluginVersion {
     const val ANDROID_BUILD_GRADLE = Versions.ANDROID_BUILD_GRADLE
     const val KOTLIN = Versions.KOTLIN
+    const val HILT = Versions.HILT
 }
 
 object Kotlin {
@@ -27,7 +34,6 @@ object Kotlin {
 
 object AndroidX {
     const val ANDROIDX_CORE_KTX = "androidx.core:core-ktx:${Versions.CORE_KTX}"
-
 }
 
 object LifecycleLibs {
@@ -48,11 +54,31 @@ object Compose {
 
 object TestingLib {
     const val JUNIT = "junit:junit:${Versions.JUNIT}"
+}
 
+object Hilt {
+    const val COMPILER = "com.google.dagger:hilt-compiler:${Versions.HILT}"
+    const val ANDROID_CORE = "com.google.dagger:hilt-android:${Versions.HILT}"
 }
 
 object AndroidTestingLib {
     const val ANDROIDX_TEST_EXT_JUNIT = "androidx.test.ext:junit:${Versions.ANDROIDX_TEST_EXT}"
     const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO_CORE}"
     const val COMPOSE_UI_TEST_JUNIT4 = "androidx.compose.ui:ui-test-junit4:${Versions.COMPOSE}"
+}
+
+object Retrofit {
+    const val CORE = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT}"
+    const val CONVERTER_MOSHI = "com.squareup.retrofit2:converter-moshi:${Versions.RETROFIT}"
+}
+
+object Moshi {
+    const val CORE = "com.squareup.moshi:moshi:${Versions.MOSHI}"
+    const val KOTLIN = "com.squareup.moshi:moshi-kotlin:${Versions.MOSHI}"
+    const val CODEGEN = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.MOSHI}"
+}
+
+object Okhttp3 {
+    const val CORE = "com.squareup.okhttp3:okhttp:${Versions.OKHTTP}"
+    const val LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:${Versions.OKHTTP}"
 }

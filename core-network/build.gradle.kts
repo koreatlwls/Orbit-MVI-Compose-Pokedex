@@ -1,6 +1,8 @@
 plugins {
     id(GradlePluginId.ANDROID_LIBRARY)
     kotlin(GradlePluginId.ANDROID)
+    kotlin(GradlePluginId.KAPT)
+    id(GradlePluginId.HILT)
 }
 
 android {
@@ -30,4 +32,29 @@ dependencies {
         androidTestApi(ESPRESSO_CORE)
     }
 
+    Hilt.run {
+        kapt(COMPILER)
+        implementation(ANDROID_CORE)
+    }
+
+    Retrofit.run {
+        implementation(CORE)
+        implementation(CONVERTER_MOSHI)
+    }
+
+    Moshi.run {
+        implementation(CORE)
+        implementation(KOTLIN)
+        kapt(CODEGEN)
+    }
+
+    Okhttp3.run {
+        implementation(CORE)
+        implementation(Okhttp3.LOGGING_INTERCEPTOR)
+    }
+
+}
+
+kapt {
+    correctErrorTypes = true
 }
