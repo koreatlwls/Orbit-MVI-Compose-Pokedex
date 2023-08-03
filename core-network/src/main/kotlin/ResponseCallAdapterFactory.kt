@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 
-class ResponseCallAdapterFactory : CallAdapter.Factory() {
+internal class ResponseCallAdapterFactory : CallAdapter.Factory() {
 
     override fun get(
         returnType: Type,

@@ -2,7 +2,7 @@ import retrofit2.Call
 import retrofit2.CallAdapter
 import java.lang.reflect.Type
 
-class ResponseCallAdapter<T>(
+internal class ResponseCallAdapter<T>(
     private val successType: Type
 ) : CallAdapter<T, Call<Result<T>>> {
 

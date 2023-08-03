@@ -3,7 +3,7 @@ package service
 import model.PokemonResponse
 import javax.inject.Inject
 
-class PokemonClient @Inject constructor(
+internal class PokemonClient @Inject constructor(
     private val pokemonService: PokemonService
 ) {
 

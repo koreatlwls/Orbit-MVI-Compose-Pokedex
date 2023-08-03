@@ -6,7 +6,7 @@ import retrofit2.Callback
 import retrofit2.HttpException
 import retrofit2.Response
 
-class ResponseCall<T> constructor(
+internal class ResponseCall<T> constructor(
     private val callDelegate: Call<T>
 ) : Call<Result<T>> {
 
