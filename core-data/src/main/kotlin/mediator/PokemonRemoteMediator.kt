@@ -15,7 +15,7 @@ import model.RemoteKeys
 import service.PokemonClient
 
 @OptIn(ExperimentalPagingApi::class)
-class PokemonRemoteMediator(
+internal class PokemonRemoteMediator(
     private val pokemonDataBase: PokemonDataBase,
     private val pokemonDao: PokemonDao,
     private val remoteKeyDao: RemoteKeyDao,
