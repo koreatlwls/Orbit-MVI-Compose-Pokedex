@@ -15,6 +15,8 @@ object Versions {
     const val MOSHI = "1.14.0"
     const val OKHTTP = "4.10.0"
     const val ROOM = "2.5.0"
+    const val PAGING = "3.1.0"
+    const val PAGING_COMPOSE = "1.0.0-alpha18"
 }
 
 object Modules {
@@ -88,4 +90,10 @@ object Room {
     const val RUNTIME = "androidx.room:room-runtime:${Versions.ROOM}"
     const val KTX = "androidx.room:room-ktx:${Versions.ROOM}"
     const val COMPILER = "androidx.room:room-compiler:${Versions.ROOM}"
+    const val PAGING = "androidx.room:room-paging:${Versions.ROOM}"
+}
+
+object Paging {
+    const val RUNTIME = "androidx.paging:paging-runtime:${Versions.PAGING}"
+    const val COMPOSE = "androidx.paging:paging-compose:${Versions.PAGING_COMPOSE}"
 }

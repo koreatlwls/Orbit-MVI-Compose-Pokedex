@@ -41,6 +41,12 @@ dependencies {
         implementation(RUNTIME)
         implementation(KTX)
         kapt(COMPILER)
+        implementation(PAGING)
+    }
+
+    Paging.run {
+        implementation(RUNTIME)
+        implementation(COMPOSE)
     }
 
 }
