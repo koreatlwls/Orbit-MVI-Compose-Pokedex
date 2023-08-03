@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     id(GradlePluginId.ANDROID_LIBRARY)
     kotlin(GradlePluginId.ANDROID)
@@ -13,6 +15,8 @@ android {
         minSdk = AppConfig.MIN_SDK_VERSION
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "BACK_URL", getLocalProperties("BACK_URL"))
     }
 
     compileOptions {
@@ -50,11 +54,15 @@ dependencies {
 
     Okhttp3.run {
         implementation(CORE)
-        implementation(Okhttp3.LOGGING_INTERCEPTOR)
+        implementation(LOGGING_INTERCEPTOR)
     }
 
 }
 
 kapt {
     correctErrorTypes = true
+}
+
+fun getLocalProperties(key: String): String {
+    return gradleLocalProperties(rootDir).getProperty(key)
 }
