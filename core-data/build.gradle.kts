@@ -42,6 +42,17 @@ dependencies {
         implementation(ANDROID_CORE)
     }
 
+    Paging.run {
+        implementation(COMMON_KTX)
+    }
+
+    Room.run {
+        implementation(RUNTIME)
+        implementation(KTX)
+        kapt(COMPILER)
+        implementation(PAGING)
+    }
+
 }
 
 kapt {

@@ -97,4 +97,5 @@ object Room {
 object Paging {
     const val RUNTIME = "androidx.paging:paging-runtime:${Versions.PAGING}"
     const val COMPOSE = "androidx.paging:paging-compose:${Versions.PAGING_COMPOSE}"
+    const val COMMON_KTX = "androidx.paging:paging-common-ktx:${Versions.PAGING}"
 }

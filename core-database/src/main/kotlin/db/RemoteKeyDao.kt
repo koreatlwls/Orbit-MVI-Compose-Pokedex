@@ -1,21 +1,20 @@
 package db
 
 import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Upsert
 import model.RemoteKey
 
 @Dao
 interface RemoteKeyDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertOrReplace(remoteKey: RemoteKey)
+    @Upsert
+    suspend fun upsert(remoteKey: RemoteKey)
 
-    @Query("SELECT * FROM RemoteKey WHERE label = :query")
-    suspend fun remoteKeyByQuery(query: String): RemoteKey
+    @Query("SELECT * FROM RemoteKey WHERE `key` = :key")
+    suspend fun remoteKeyByQuery(key: String): RemoteKey
 
-    @Query("DELETE FROM RemoteKey WHERE label = :query")
-    suspend fun deleteByQuery(query: String)
+    @Query("DELETE FROM RemoteKey WHERE `key` = :key")
+    suspend fun deleteByKey(key: String)
 
 }
