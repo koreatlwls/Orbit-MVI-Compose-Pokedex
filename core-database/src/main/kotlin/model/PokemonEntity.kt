@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-internal data class PokemonEntity(
+data class PokemonEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val name: String,

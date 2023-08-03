@@ -13,7 +13,7 @@ import model.RemoteKey
     version = 1,
     exportSchema = false
 )
-internal abstract class PokemonDataBase : RoomDatabase() {
+abstract class PokemonDataBase : RoomDatabase() {
 
     abstract fun getPokemonDao(): PokemonDao
 

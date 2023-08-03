@@ -4,7 +4,7 @@ import model.PokemonResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-internal interface PokemonService {
+interface PokemonService {
 
     @GET("/pokemon")
     suspend fun getPokemons(

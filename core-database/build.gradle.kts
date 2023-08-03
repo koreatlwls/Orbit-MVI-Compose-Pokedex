@@ -44,11 +44,6 @@ dependencies {
         implementation(PAGING)
     }
 
-    Paging.run {
-        implementation(RUNTIME)
-        implementation(COMPOSE)
-    }
-
 }
 
 kapt {

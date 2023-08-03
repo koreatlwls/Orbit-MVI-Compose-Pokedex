@@ -7,7 +7,7 @@ import androidx.room.Query
 import model.RemoteKey
 
 @Dao
-internal interface RemoteKeyDao {
+interface RemoteKeyDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertOrReplace(remoteKey: RemoteKey)
