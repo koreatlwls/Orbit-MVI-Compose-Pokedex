@@ -1,6 +1,8 @@
 plugins {
     id(GradlePluginId.ANDROID_LIBRARY)
     kotlin(GradlePluginId.ANDROID)
+    kotlin(GradlePluginId.KAPT)
+    id(GradlePluginId.HILT)
 }
 
 android {
@@ -14,8 +16,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
@@ -30,4 +32,18 @@ dependencies {
         androidTestApi(ESPRESSO_CORE)
     }
 
+    Modules.run{
+        implementation(project(NETWORK))
+        implementation(project(DATABASE))
+    }
+
+    Hilt.run {
+        kapt(COMPILER)
+        implementation(ANDROID_CORE)
+    }
+
+}
+
+kapt {
+    correctErrorTypes = true
 }

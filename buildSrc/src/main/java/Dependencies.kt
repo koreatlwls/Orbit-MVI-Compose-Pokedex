@@ -23,6 +23,7 @@ object Modules {
     const val APP = ":app"
     const val DATA = ":core-data"
     const val NETWORK = ":core-network"
+    const val DATABASE = ":core-database"
 }
 
 object BuildPluginVersion {
