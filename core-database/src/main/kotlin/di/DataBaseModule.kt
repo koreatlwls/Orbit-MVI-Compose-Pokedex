@@ -1,7 +1,7 @@
 package di
 
-import PokemonDataBase
-import PokemonDataBase.Companion.DB_NAME
+import database.PokemonDataBase
+import database.PokemonDataBase.Companion.DB_NAME
 import android.content.Context
 import androidx.room.Room
 import dagger.Module

@@ -1,12 +1,12 @@
 package di
 
-import PokemonDataBase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import db.PokemonDao
-import db.RemoteKeyDao
+import database.dao.PokemonDao
+import database.PokemonDataBase
+import database.dao.RemoteKeyDao
 import javax.inject.Singleton
 
 @Module

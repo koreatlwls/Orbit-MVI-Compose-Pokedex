@@ -1,9 +1,9 @@
 package mapper
 
-import model.Pokemon
+import model.Item
 import model.PokemonEntity
 
-internal fun Pokemon.toEntity() = PokemonEntity(
+internal fun Item.toEntity() = PokemonEntity(
     name = name,
     url = url
 )

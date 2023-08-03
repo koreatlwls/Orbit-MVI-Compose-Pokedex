@@ -1,4 +1,4 @@
-package db
+package database.dao
 
 import androidx.room.Dao
 import androidx.room.Query

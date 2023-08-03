@@ -1,4 +1,4 @@
-package db
+package database.dao
 
 import androidx.paging.PagingSource
 import androidx.room.Dao

@@ -1,13 +1,13 @@
 package mediator
 
-import PokemonDataBase
+import database.PokemonDataBase
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
-import db.PokemonDao
-import db.RemoteKeyDao
+import database.dao.PokemonDao
+import database.dao.RemoteKeyDao
 import mapper.toEntity
 import model.PokemonEntity
 import model.RemoteKey
@@ -65,7 +65,7 @@ internal class PokemonRemoteMediator(
                         )
                     )
 
-                    pokemonDao.upsertAll(response.pokemons.map { it.toEntity() })
+                    pokemonDao.upsertAll(response.items.map { it.toEntity() })
                 }
 
                 result = MediatorResult.Success(last)

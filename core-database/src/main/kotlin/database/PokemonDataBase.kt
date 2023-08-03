@@ -1,7 +1,9 @@
+package database
+
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import db.PokemonDao
-import db.RemoteKeyDao
+import database.dao.PokemonDao
+import database.dao.RemoteKeyDao
 import model.PokemonEntity
 import model.RemoteKey
 

@@ -1,12 +1,12 @@
 package repository
 
-import PokemonDataBase
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import db.PokemonDao
-import db.RemoteKeyDao
+import database.PokemonDataBase
+import database.dao.PokemonDao
+import database.dao.RemoteKeyDao
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import mapper.toRepository
