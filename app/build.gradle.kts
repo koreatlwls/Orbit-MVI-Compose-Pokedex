@@ -88,8 +88,12 @@ dependencies {
         implementation(NAVIGATION_COMPOSE)
     }
 
-    Modules.run{
+    Modules.run {
         implementation(project(DATA))
+    }
+
+    Paging.run {
+        implementation(COMPOSE)
     }
 
 }
