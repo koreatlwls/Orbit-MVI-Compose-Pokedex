@@ -85,6 +85,7 @@ dependencies {
     Hilt.run {
         kapt(COMPILER)
         implementation(ANDROID_CORE)
+        implementation(NAVIGATION_COMPOSE)
     }
 
     Modules.run{

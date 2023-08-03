@@ -17,6 +17,7 @@ object Versions {
     const val ROOM = "2.5.0"
     const val PAGING = "3.1.0"
     const val PAGING_COMPOSE = "1.0.0-alpha18"
+    const val HILT_COMPOSE = "1.0.0"
 }
 
 object Modules {
@@ -63,6 +64,7 @@ object TestingLib {
 object Hilt {
     const val COMPILER = "com.google.dagger:hilt-compiler:${Versions.HILT}"
     const val ANDROID_CORE = "com.google.dagger:hilt-android:${Versions.HILT}"
+    const val NAVIGATION_COMPOSE = "androidx.hilt:hilt-navigation-compose:${Versions.HILT_COMPOSE}"
 }
 
 object AndroidTestingLib {
