@@ -19,6 +19,7 @@ object Versions {
     const val PAGING_COMPOSE = "1.0.0-alpha18"
     const val HILT_COMPOSE = "1.0.0"
     const val COIL_COMPOSE = "2.4.0"
+    const val ORBIT_COMPOSE = "6.0.0"
 
     const val ONEBONE = "2.3.5"
 }
@@ -109,4 +110,9 @@ object Paging {
 
 object COIL {
     const val COMPOSE = "io.coil-kt:coil-compose:${Versions.COIL_COMPOSE}"
+}
+
+object Orbit {
+    const val COMPOSE = "org.orbit-mvi:orbit-compose:${Versions.ORBIT_COMPOSE}"
+    const val VIEWMODEL = "org.orbit-mvi:orbit-viewmodel:${Versions.ORBIT_COMPOSE}"
 }

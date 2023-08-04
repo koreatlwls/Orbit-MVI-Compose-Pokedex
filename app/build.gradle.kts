@@ -99,6 +99,11 @@ dependencies {
         implementation(COMPOSE)
     }
 
+    Orbit.run{
+        implementation(COMPOSE)
+        implementation(VIEWMODEL)
+    }
+
 }
 
 kapt {
