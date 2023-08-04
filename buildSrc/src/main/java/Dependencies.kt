@@ -16,7 +16,7 @@ object Versions {
     const val OKHTTP = "4.10.0"
     const val ROOM = "2.5.0"
     const val PAGING = "3.1.0"
-    const val PAGING_COMPOSE = "1.0.0-alpha18"
+    const val PAGING_COMPOSE = "1.0.0-alpha20"
     const val HILT_COMPOSE = "1.0.0"
     const val COIL_COMPOSE = "2.4.0"
     const val ORBIT_COMPOSE = "6.0.0"
