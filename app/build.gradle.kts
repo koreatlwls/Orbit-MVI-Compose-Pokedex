@@ -55,6 +55,7 @@ dependencies {
 
     AndroidX.run {
         implementation(ANDROIDX_CORE_KTX)
+        implementation(PALETTE)
     }
 
     LifecycleLibs.run {

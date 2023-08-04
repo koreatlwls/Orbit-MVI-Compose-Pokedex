@@ -20,7 +20,7 @@ object Versions {
     const val HILT_COMPOSE = "1.0.0"
     const val COIL_COMPOSE = "2.4.0"
     const val ORBIT_COMPOSE = "6.0.0"
-
+    const val PALETTE = "1.0.0"
     const val ONEBONE = "2.3.5"
 }
 
@@ -43,6 +43,7 @@ object Kotlin {
 
 object AndroidX {
     const val ANDROIDX_CORE_KTX = "androidx.core:core-ktx:${Versions.CORE_KTX}"
+    const val PALETTE = "androidx.palette:palette:${Versions.PALETTE}"
 }
 
 object LifecycleLibs {
