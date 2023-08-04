@@ -12,7 +12,7 @@ interface PokemonDao {
     @Upsert
     suspend fun upsertAll(pokemons: List<PokemonEntity>)
 
-    @Query("SELECT * FROM PokemonEntity ORDER BY ID DESC")
+    @Query("SELECT * FROM PokemonEntity ORDER BY ID ASC")
     fun getPokemons(): PagingSource<Int, PokemonEntity>
 
     @Query("DELETE FROM PokemonEntity")
