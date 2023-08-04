@@ -10,7 +10,7 @@ data class PokemonResponse(
     @Json(name = "next")
     val next: String?,
     @Json(name = "previous")
-    val previous: Any,
+    val previous: String?,
     @Json(name = "results")
     val items: List<Item>
 )
