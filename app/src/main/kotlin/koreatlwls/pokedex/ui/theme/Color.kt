@@ -1,11 +1,27 @@
 package pokedex.ui.theme
 
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+val PdsBlack = Color(0xFF000000)
+val PdsWhite = Color(0xFFFFFFFF)
+val PdsLightWhite = Color(0x80FFFFFF)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+enum class PdsColor {
+    PDS_BLACK,
+    PDS_WHITE,
+    PDS_LIGHT_WHITE;
+
+    @Composable
+    fun getColor() = when (this) {
+        PDS_BLACK -> PdsTheme.colors.black
+        PDS_WHITE -> PdsTheme.colors.white
+        PDS_LIGHT_WHITE -> PdsTheme.colors.lightWhite
+    }
+}
+
+data class PdsColors(
+    val black: Color = PdsBlack,
+    val white: Color = PdsWhite,
+    val lightWhite: Color = PdsLightWhite,
+)

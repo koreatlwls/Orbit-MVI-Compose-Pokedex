@@ -72,6 +72,9 @@ dependencies {
 
         debugApi(TEST_MANIFEST)
         debugApi(TOOLING_PREVIEW)
+
+        implementation(COIL.COMPOSE)
+        implementation(ONEBONE)
     }
 
     testApi(TestingLib.JUNIT)

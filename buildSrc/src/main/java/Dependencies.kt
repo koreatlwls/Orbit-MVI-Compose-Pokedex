@@ -18,6 +18,9 @@ object Versions {
     const val PAGING = "3.1.0"
     const val PAGING_COMPOSE = "1.0.0-alpha18"
     const val HILT_COMPOSE = "1.0.0"
+    const val COIL_COMPOSE = "2.4.0"
+
+    const val ONEBONE = "2.3.5"
 }
 
 object Modules {
@@ -55,6 +58,8 @@ object Compose {
     const val TOOLING = "androidx.compose.ui:ui-tooling:${Versions.COMPOSE}"
     const val TEST_MANIFEST = "androidx.compose.ui:ui-test-manifest:${Versions.COMPOSE}"
     const val UI_UTIL = "androidx.compose.ui:ui-util:${Versions.COMPOSE}"
+
+    const val ONEBONE = "me.onebone:toolbar-compose:${Versions.ONEBONE}"
 }
 
 object TestingLib {
@@ -100,4 +105,8 @@ object Paging {
     const val RUNTIME = "androidx.paging:paging-runtime:${Versions.PAGING}"
     const val COMPOSE = "androidx.paging:paging-compose:${Versions.PAGING_COMPOSE}"
     const val COMMON_KTX = "androidx.paging:paging-common-ktx:${Versions.PAGING}"
+}
+
+object COIL {
+    const val COMPOSE = "io.coil-kt:coil-compose:${Versions.COIL_COMPOSE}"
 }
