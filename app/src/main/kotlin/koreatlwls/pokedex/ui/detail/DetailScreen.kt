@@ -1,4 +1,4 @@
-package koreatlwls.pokedex.ui
+package koreatlwls.pokedex.ui.detail
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize

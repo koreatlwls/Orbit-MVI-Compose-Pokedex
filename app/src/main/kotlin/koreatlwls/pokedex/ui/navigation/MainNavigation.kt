@@ -1,4 +1,4 @@
-package koreatlwls.pokedex.ui
+package koreatlwls.pokedex.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
@@ -6,6 +6,8 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import koreatlwls.pokedex.ui.detail.DetailScreen
+import koreatlwls.pokedex.ui.main.MainScreen
 
 @Composable
 fun MainNavigationGraph(navHostController: NavHostController) {

@@ -1,4 +1,4 @@
-package koreatlwls.pokedex.ui
+package koreatlwls.pokedex.ui.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
