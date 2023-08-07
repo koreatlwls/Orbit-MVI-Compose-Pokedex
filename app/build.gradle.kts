@@ -74,7 +74,6 @@ dependencies {
         debugApi(TEST_MANIFEST)
         debugApi(TOOLING_PREVIEW)
 
-        implementation(COIL.COMPOSE)
         implementation(ONEBONE)
     }
 
@@ -105,6 +104,9 @@ dependencies {
         implementation(VIEWMODEL)
     }
 
+    implementation(Coil.COMPOSE)
+
+    implementation(Navigation.COMPOSE)
 }
 
 kapt {

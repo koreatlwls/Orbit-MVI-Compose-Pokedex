@@ -22,6 +22,7 @@ object Versions {
     const val ORBIT_COMPOSE = "6.0.0"
     const val PALETTE = "1.0.0"
     const val ONEBONE = "2.3.5"
+    const val NAVIGATION = "2.6.0"
 }
 
 object Modules {
@@ -109,11 +110,15 @@ object Paging {
     const val COMMON_KTX = "androidx.paging:paging-common-ktx:${Versions.PAGING}"
 }
 
-object COIL {
+object Coil {
     const val COMPOSE = "io.coil-kt:coil-compose:${Versions.COIL_COMPOSE}"
 }
 
 object Orbit {
     const val COMPOSE = "org.orbit-mvi:orbit-compose:${Versions.ORBIT_COMPOSE}"
     const val VIEWMODEL = "org.orbit-mvi:orbit-viewmodel:${Versions.ORBIT_COMPOSE}"
+}
+
+object Navigation {
+    const val COMPOSE = "androidx.navigation:navigation-compose:${Versions.NAVIGATION}"
 }
