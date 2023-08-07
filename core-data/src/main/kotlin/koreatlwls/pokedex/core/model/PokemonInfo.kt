@@ -6,7 +6,8 @@ data class PokemonInfo(
     val height : String,
     val weight : String,
     val exp : String,
-    val types : List<PokemonType>
+    val types : List<PokemonType>,
+    val imageUrl : String,
 )
 
 data class PokemonType(

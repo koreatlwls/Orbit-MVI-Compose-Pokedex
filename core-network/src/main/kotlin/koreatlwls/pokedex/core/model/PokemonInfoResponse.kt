@@ -17,6 +17,8 @@ data class PokemonInfoResponse(
     fun getHeightString(): String = String.format("%.1f M", height.toFloat() / 10)
     fun getWeightString(): String = String.format("%.1f KG", weight.toFloat() / 10)
     fun getExpString(): String = String.format("%03d EXP", experience)
+    fun getImageUrl(): String =
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png"
 
     @JsonClass(generateAdapter = true)
     data class TypeResponse(

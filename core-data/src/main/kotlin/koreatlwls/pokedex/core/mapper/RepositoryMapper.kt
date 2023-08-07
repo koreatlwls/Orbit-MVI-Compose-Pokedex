@@ -23,7 +23,8 @@ internal fun PokemonInfoResponse.toRepository() = PokemonInfo(
     height = getHeightString(),
     weight = getWeightString(),
     exp = getExpString(),
-    types = types.map { it.toRepository() }
+    types = types.map { it.toRepository() },
+    imageUrl = getImageUrl()
 )
 
 internal fun PokemonInfoResponse.TypeResponse.toRepository() = PokemonType(
