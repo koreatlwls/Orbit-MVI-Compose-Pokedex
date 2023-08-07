@@ -3,6 +3,7 @@ package koreatlwls.pokedex.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import pokedex.ui.theme.PdsTheme
 
@@ -12,7 +13,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             PdsTheme {
-                MainScreen()
+                val navHostController = rememberNavController()
+                MainNavigationGraph(navHostController = navHostController)
             }
         }
     }

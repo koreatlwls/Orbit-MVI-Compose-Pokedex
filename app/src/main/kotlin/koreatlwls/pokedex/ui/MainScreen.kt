@@ -2,6 +2,7 @@ package koreatlwls.pokedex.ui
 
 import android.graphics.Color.parseColor
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -55,14 +56,18 @@ import pokedex.ui.theme.PdsColor
 import pokedex.ui.theme.PdsTheme
 
 @Composable
-fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
+fun MainScreen(
+    viewModel: MainViewModel = hiltViewModel(),
+    onNavigateToDetail: (String) -> Unit,
+) {
     var query by remember { mutableStateOf("") }
     val pokemons = viewModel.pokemon.collectAsLazyPagingItems()
 
     MainScreen(
         query = query,
         onValueChange = { query = it },
-        pokemons = pokemons
+        pokemons = pokemons,
+        onClick = onNavigateToDetail,
     )
 }
 
@@ -71,6 +76,7 @@ fun MainScreen(
     query: String,
     onValueChange: (String) -> Unit,
     pokemons: LazyPagingItems<Pokemon>,
+    onClick: (String) -> Unit
 ) {
     val state = rememberCollapsingToolbarScaffoldState()
     val gridState = rememberLazyGridState()
@@ -145,7 +151,8 @@ fun MainScreen(
                                 pokemons[it]?.let { pokemon ->
                                     PokemonCard(
                                         name = pokemon.name,
-                                        imageUrl = pokemon.imageUrl
+                                        imageUrl = pokemon.imageUrl,
+                                        onClick = onClick
                                     )
                                 }
                             }
@@ -168,6 +175,7 @@ fun MainScreen(
 fun PokemonCard(
     name: String,
     imageUrl: String,
+    onClick: (String) -> Unit,
 ) {
     var cardBackgroundColor by remember { mutableStateOf("#FFFFFFFF") }
 
@@ -185,6 +193,7 @@ fun PokemonCard(
 
     Card(
         modifier = Modifier
+            .clickable { onClick(name) }
             .padding(12.dp)
             .height(150.dp)
             .clip(RoundedCornerShape(24.dp)),
@@ -215,7 +224,9 @@ fun PokemonCard(
 @Composable
 private fun MainScreenPreview() {
     PdsTheme {
-        MainScreen()
+        MainScreen(
+            onNavigateToDetail = {}
+        )
     }
 }
 
@@ -225,7 +236,8 @@ private fun PokemonCardPreview() {
     PdsTheme {
         PokemonCard(
             name = "Rizard",
-            imageUrl = ""
+            imageUrl = "",
+            onClick = {},
         )
     }
 }
