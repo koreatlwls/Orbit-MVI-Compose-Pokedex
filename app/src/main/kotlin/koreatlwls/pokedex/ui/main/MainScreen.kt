@@ -13,6 +13,8 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
@@ -36,6 +38,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -61,6 +65,7 @@ import java.nio.charset.StandardCharsets
 @Composable
 fun MainScreen(
     viewModel: MainViewModel = hiltViewModel(),
+    onNavigateToResult: (String) -> Unit,
     onNavigateToDetail: (PokemonUi) -> Unit,
 ) {
     var query by remember { mutableStateOf("") }
@@ -70,6 +75,7 @@ fun MainScreen(
         query = query,
         onValueChange = { query = it },
         pokemons = pokemons,
+        onSearch = onNavigateToResult,
         onClick = onNavigateToDetail,
     )
 }
@@ -79,6 +85,7 @@ fun MainScreen(
     query: String,
     onValueChange: (String) -> Unit,
     pokemons: LazyPagingItems<Pokemon>,
+    onSearch: (String) -> Unit,
     onClick: (PokemonUi) -> Unit
 ) {
     val state = rememberCollapsingToolbarScaffoldState()
@@ -137,6 +144,15 @@ fun MainScreen(
                         unfocusedContainerColor = PdsColor.PDS_LIGHT_WHITE.getColor(),
                         focusedIndicatorColor = Color.Transparent,
                         unfocusedIndicatorColor = Color.Transparent
+                    ),
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = KeyboardType.Text,
+                        imeAction = ImeAction.Search
+                    ),
+                    keyboardActions = KeyboardActions(
+                        onSearch = {
+                            onSearch(query)
+                        }
                     )
                 )
 
@@ -241,6 +257,7 @@ fun PokemonCard(
 private fun MainScreenPreview() {
     PdsTheme {
         MainScreen(
+            onNavigateToResult = {},
             onNavigateToDetail = {}
         )
     }
