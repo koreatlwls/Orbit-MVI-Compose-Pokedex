@@ -6,11 +6,12 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapter
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import koreatlwls.pokedex.model.PokemonUi
+import koreatlwls.pokedex.util.getParcelable
 
 class PokemonUiNavType : NavType<PokemonUi>(isNullableAllowed = false) {
 
     override fun get(bundle: Bundle, key: String): PokemonUi? =
-        bundle.getParcelable(key)
+        PokemonUi::class.getParcelable(bundle, key)
 
     @OptIn(ExperimentalStdlibApi::class)
     override fun parseValue(value: String): PokemonUi {

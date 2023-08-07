@@ -8,6 +8,7 @@ import androidx.navigation.navArgument
 import koreatlwls.pokedex.model.PokemonUi
 import koreatlwls.pokedex.ui.detail.DetailScreen
 import koreatlwls.pokedex.ui.main.MainScreen
+import koreatlwls.pokedex.util.getParcelable
 
 @Composable
 fun MainNavigationGraph(navHostController: NavHostController) {
@@ -26,14 +27,15 @@ fun MainNavigationGraph(navHostController: NavHostController) {
             route = "detail/{pokemonUi}",
             arguments = listOf(navArgument("pokemonUi") { type = PokemonUiNavType() })
         ) { navBackStackEntry ->
-            val pokemonUi = navBackStackEntry.arguments?.getParcelable<PokemonUi>("pokemonUi")
-            pokemonUi?.let {
-                DetailScreen(
-                    pokemonUi = it,
-                    onBack = {
-                        navHostController.popBackStack()
-                    }
-                )
+            navBackStackEntry.arguments?.let {
+                PokemonUi::class.getParcelable(it, "pokemonUi")?.let {
+                    DetailScreen(
+                        pokemonUi = it,
+                        onBack = {
+                            navHostController.popBackStack()
+                        }
+                    )
+                }
             }
         }
     }
