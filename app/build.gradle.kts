@@ -3,6 +3,7 @@ plugins {
     kotlin(GradlePluginId.ANDROID)
     kotlin(GradlePluginId.KAPT)
     id(GradlePluginId.HILT)
+    id(GradlePluginId.PARCELIZE)
 }
 
 android {
@@ -107,6 +108,8 @@ dependencies {
     implementation(Coil.COMPOSE)
 
     implementation(Navigation.COMPOSE)
+
+    implementation(Moshi.KOTLIN)
 }
 
 kapt {

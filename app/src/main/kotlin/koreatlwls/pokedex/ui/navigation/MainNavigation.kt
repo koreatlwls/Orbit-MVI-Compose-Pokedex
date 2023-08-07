@@ -2,10 +2,10 @@ package koreatlwls.pokedex.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import koreatlwls.pokedex.model.PokemonUi
 import koreatlwls.pokedex.ui.detail.DetailScreen
 import koreatlwls.pokedex.ui.main.MainScreen
 
@@ -17,19 +17,19 @@ fun MainNavigationGraph(navHostController: NavHostController) {
     ) {
         composable("main") {
             MainScreen(
-                onNavigateToDetail = { pokemonName ->
-                    navHostController.navigate("detail/${pokemonName}")
+                onNavigateToDetail = { pokemonUi ->
+                    navHostController.navigate("detail/${pokemonUi.toJson()}")
                 }
             )
         }
         composable(
-            route = "detail/{pokemonName}",
-            arguments = listOf(navArgument("pokemonName") { type = NavType.StringType })
+            route = "detail/{pokemonUi}",
+            arguments = listOf(navArgument("pokemonUi") { type = PokemonUiNavType() })
         ) { navBackStackEntry ->
-            val pokemonName = navBackStackEntry.arguments?.getString("pokemonName")
-            pokemonName?.let {
+            val pokemonUi = navBackStackEntry.arguments?.getParcelable<PokemonUi>("pokemonUi")
+            pokemonUi?.let {
                 DetailScreen(
-                    pokemonName = it,
+                    pokemonUi = it,
                     onBack = {
                         navHostController.popBackStack()
                     }

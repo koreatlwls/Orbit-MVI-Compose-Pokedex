@@ -47,6 +47,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import koreatlwls.pokedex.R
 import koreatlwls.pokedex.core.model.Pokemon
+import koreatlwls.pokedex.model.PokemonUi
 import koreatlwls.pokedex.util.PaletteGenerator.convertImageUrlToBitmap
 import koreatlwls.pokedex.util.PaletteGenerator.extractColorsFromBitmap
 import me.onebone.toolbar.CollapsingToolbarScaffold
@@ -54,11 +55,13 @@ import me.onebone.toolbar.ScrollStrategy
 import me.onebone.toolbar.rememberCollapsingToolbarScaffoldState
 import pokedex.ui.theme.PdsColor
 import pokedex.ui.theme.PdsTheme
+import java.net.URLEncoder
+import java.nio.charset.StandardCharsets
 
 @Composable
 fun MainScreen(
     viewModel: MainViewModel = hiltViewModel(),
-    onNavigateToDetail: (String) -> Unit,
+    onNavigateToDetail: (PokemonUi) -> Unit,
 ) {
     var query by remember { mutableStateOf("") }
     val pokemons = viewModel.pokemon.collectAsLazyPagingItems()
@@ -76,7 +79,7 @@ fun MainScreen(
     query: String,
     onValueChange: (String) -> Unit,
     pokemons: LazyPagingItems<Pokemon>,
-    onClick: (String) -> Unit
+    onClick: (PokemonUi) -> Unit
 ) {
     val state = rememberCollapsingToolbarScaffoldState()
     val gridState = rememberLazyGridState()
@@ -175,9 +178,13 @@ fun MainScreen(
 fun PokemonCard(
     name: String,
     imageUrl: String,
-    onClick: (String) -> Unit,
+    onClick: (PokemonUi) -> Unit,
 ) {
     var cardBackgroundColor by remember { mutableStateOf("#FFFFFFFF") }
+    var pokemonUi = PokemonUi(
+        name = name,
+        imageUrl = URLEncoder.encode(imageUrl, StandardCharsets.UTF_8.toString())
+    )
 
     val context = LocalContext.current
     LaunchedEffect(Unit) {
@@ -187,13 +194,16 @@ fun PokemonCard(
         )
 
         if (bitmap != null) {
-            cardBackgroundColor = extractColorsFromBitmap(bitmap)["lightMuted"] ?: "#FFFFFFFF"
+            val color = extractColorsFromBitmap(bitmap)["lightMuted"] ?: "#FFFFFFFF"
+            cardBackgroundColor = color
+            pokemonUi = pokemonUi.copy(backgroundColor = color)
+
         }
     }
 
     Card(
         modifier = Modifier
-            .clickable { onClick(name) }
+            .clickable { onClick(pokemonUi) }
             .padding(12.dp)
             .height(150.dp)
             .clip(RoundedCornerShape(24.dp)),

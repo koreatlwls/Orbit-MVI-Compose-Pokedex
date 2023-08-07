@@ -7,4 +7,5 @@ object GradlePluginId {
     const val KAPT = "kapt"
     const val HILT = "dagger.hilt.android.plugin"
     const val HILT_APG = "com.google.dagger:hilt-android-gradle-plugin"
+    const val PARCELIZE = "kotlin-parcelize"
 }
