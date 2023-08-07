@@ -7,12 +7,13 @@ import androidx.paging.PagingData
 import koreatlwls.pokedex.core.database.PokemonDataBase
 import koreatlwls.pokedex.core.database.dao.PokemonDao
 import koreatlwls.pokedex.core.database.dao.RemoteKeyDao
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 import koreatlwls.pokedex.core.mapper.toRepository
 import koreatlwls.pokedex.core.mediator.PokemonRemoteMediator
 import koreatlwls.pokedex.core.model.Pokemon
+import koreatlwls.pokedex.core.model.PokemonInfo
 import koreatlwls.pokedex.core.service.PokemonClient
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class PokemonRepositoryImpl @Inject constructor(
@@ -37,6 +38,9 @@ class PokemonRepositoryImpl @Inject constructor(
         }.flow.map {
             it.toRepository()
         }
+
+    override suspend fun getPokemonInfo(name: String): Result<PokemonInfo> =
+        pokemonClient.getPokemonInfo(name).mapCatching { it.toRepository() }
 
     companion object {
         private const val PAGE_SIZE = 20
