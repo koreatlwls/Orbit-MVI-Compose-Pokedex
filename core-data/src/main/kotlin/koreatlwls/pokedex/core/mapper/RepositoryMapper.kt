@@ -13,7 +13,6 @@ internal fun PagingData<PokemonEntity>.toRepository() = map {
 
 internal fun PokemonEntity.toRepository() = Pokemon(
     name = name,
-    url = url,
     imageUrl = imageUrl,
 )
 
