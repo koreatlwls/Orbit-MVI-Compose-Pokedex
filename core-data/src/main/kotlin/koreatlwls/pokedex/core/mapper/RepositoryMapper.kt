@@ -6,6 +6,7 @@ import koreatlwls.pokedex.core.model.Pokemon
 import koreatlwls.pokedex.core.model.PokemonEntity
 import koreatlwls.pokedex.core.model.PokemonInfo
 import koreatlwls.pokedex.core.model.PokemonInfoResponse
+import koreatlwls.pokedex.core.model.PokemonType
 
 internal fun PagingData<PokemonEntity>.toRepository() = map {
     it.toRepository()
@@ -17,7 +18,14 @@ internal fun PokemonEntity.toRepository() = Pokemon(
 )
 
 internal fun PokemonInfoResponse.toRepository() = PokemonInfo(
+    id = getIdString(),
     name = name,
-    height = height,
-    weight = weight
+    height = getHeightString(),
+    weight = getWeightString(),
+    exp = getExpString(),
+    types = types.map { it.toRepository() }
+)
+
+internal fun PokemonInfoResponse.TypeResponse.toRepository() = PokemonType(
+    name = this.type.name
 )
