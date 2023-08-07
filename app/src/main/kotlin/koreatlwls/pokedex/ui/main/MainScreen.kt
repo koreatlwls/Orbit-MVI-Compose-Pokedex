@@ -180,11 +180,7 @@ fun PokemonCard(
     imageUrl: String,
     onClick: (PokemonUi) -> Unit,
 ) {
-    var cardBackgroundColor by remember { mutableStateOf("#FFFFFFFF") }
-    var pokemonUi = PokemonUi(
-        name = name,
-        imageUrl = URLEncoder.encode(imageUrl, StandardCharsets.UTF_8.toString())
-    )
+    var cardBackgroundColor by remember { mutableStateOf("#80FFFFFF") }
 
     val context = LocalContext.current
     LaunchedEffect(Unit) {
@@ -194,16 +190,26 @@ fun PokemonCard(
         )
 
         if (bitmap != null) {
-            val color = extractColorsFromBitmap(bitmap)["lightMuted"] ?: "#FFFFFFFF"
-            cardBackgroundColor = color
-            pokemonUi = pokemonUi.copy(backgroundColor = color)
-
+            cardBackgroundColor = extractColorsFromBitmap(bitmap)["lightMuted"] ?: "#FFFFFFFF"
         }
     }
 
     Card(
         modifier = Modifier
-            .clickable { onClick(pokemonUi) }
+            .clickable {
+                if (cardBackgroundColor != "#80FFFFFF") {
+                    onClick(
+                        PokemonUi(
+                            name = name,
+                            imageUrl = URLEncoder.encode(
+                                imageUrl,
+                                StandardCharsets.UTF_8.toString()
+                            ),
+                            backgroundColor = cardBackgroundColor.replace("#", "")
+                        )
+                    )
+                }
+            }
             .padding(12.dp)
             .height(150.dp)
             .clip(RoundedCornerShape(24.dp)),
